@@ -1,0 +1,38 @@
+GET http://127.0.0.1:8000/api/v1/artists/
+
+###
+
+GET http://127.0.0.1:8000/api/v1/albums/
+
+###
+
+GET http://127.0.0.1:8000/api/v1/songs/
+
+###
+
+POST http://127.0.0.1:8000/api/v1/artists/
+Content-Type: application/json
+
+{
+    "name": "qurixsity"
+}
+
+###
+
+POST http://127.0.0.1:8000/api/v1/albums/
+Content-Type: application/json
+
+{
+    "artist": "3TERNITY",
+    "year": 2023
+}
+
+###
+
+POST http://127.0.0.1:8000/api/v1/songs/
+Content-Type: application/json
+
+{
+    "name": "toler",
+    "album": 1005
+}
