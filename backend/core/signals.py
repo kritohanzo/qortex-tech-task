@@ -5,9 +5,7 @@ from music.models import Song
 
 @receiver(post_delete, sender=Song)
 def rearrange_serial_numbers(sender: Song, instance: Song, *args, **kwargs) -> None:
-    print("zdarova")
-    songs = instance.album.songs.all()
-    print(songs)
+    songs = instance.album.songs.order_by("serial_number_in_album")
     for i, song in enumerate(songs):
-        song.id = i + 1
+        song.serial_number_in_album = i + 1
         song.save()
