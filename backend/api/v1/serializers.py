@@ -6,13 +6,25 @@ class ArtistSerializer(serializers.ModelSerializer):
         model = Artist
         fields = ("id", "name")
 
-class AlbumSerializer(serializers.ModelSerializer):
+class CreateUpdateAlbumSerializer(serializers.ModelSerializer):
     class Meta:
         model = Album
-        fields = ("id", "artist", "year")
+        fields = ("id", "name", "artist", "year")
 
-class SongSerializer(serializers.ModelSerializer):
+class CreateUpdateSongSerializer(serializers.ModelSerializer):
     class Meta:
         model = Song
         fields = ("id", "name", "album", "serial_number_in_album")
         read_only_fields = ("serial_number_in_album",)
+
+class RetrieveListAlbumSerializer(serializers.ModelSerializer):
+    artist = serializers.CharField(source="artist.name")
+    class Meta:
+        model = Album
+        fields = ("id", "name", "artist", "year")
+
+class RetrieveListSongSerializer(serializers.ModelSerializer):
+    album = serializers.CharField(source="album.name")
+    class Meta:
+        model = Song
+        fields = ("id", "name", "album", "serial_number_in_album")

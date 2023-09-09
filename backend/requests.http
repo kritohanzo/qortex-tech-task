@@ -23,7 +23,8 @@ POST http://127.0.0.1:8000/api/v1/albums/
 Content-Type: application/json
 
 {
-    "artist": "3TERNITY",
+    "name": "РАЗНОС",
+    "artist": 1001,
     "year": 2023
 }
 
@@ -34,5 +35,13 @@ Content-Type: application/json
 
 {
     "name": "toler",
-    "album": 1005
+    "album": 1003 
 }
+
+###
+
+DELETE http://127.0.0.1:8000/api/v1/artists/1003/
+
+###
+
+DELETE http://127.0.0.1:8000/api/v1/songs/1002/
