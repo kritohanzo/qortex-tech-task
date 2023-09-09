@@ -26,6 +26,8 @@ class AlbumViewSet(MultiSerializerViewSetMixin, ModelViewSet):
     
     serializer_classes = {
         "create": CreateUpdateAlbumSerializer,
+        "update": CreateUpdateAlbumSerializer,
+        "partial_update": CreateUpdateAlbumSerializer,
         "list": RetrieveListAlbumSerializer,
         "retrieve": RetrieveListAlbumSerializer,
     }
@@ -36,6 +38,8 @@ class SongViewSet(MultiSerializerViewSetMixin, ModelViewSet):
 
     serializer_classes = {
         "create": CreateUpdateSongSerializer,
+        "update": CreateUpdateSongSerializer,
+        "partial_update": CreateUpdateSongSerializer,
         "list": RetrieveListSongSerializer,
         "retrieve": RetrieveListSongSerializer,
     }

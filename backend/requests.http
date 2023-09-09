@@ -1,47 +1,130 @@
+###############
+### GET ALL ###
+###############
+
+### GET ALL ARTISTS ###
 GET http://127.0.0.1:8000/api/v1/artists/
 
-###
-
+### GET ALL ALBUMS ###
 GET http://127.0.0.1:8000/api/v1/albums/
 
-###
-
+### GET ALL SONGS ###
 GET http://127.0.0.1:8000/api/v1/songs/
 
-###
+####################
+### GET CONCRETE ###
+####################
 
+### GET CONCRETE ARTIST ###
+GET http://127.0.0.1:8000/api/v1/artists/1002/
+
+### GET CONCRETE ALBUM ###
+GET http://127.0.0.1:8000/api/v1/albums/1001/
+
+### GET CONCRETE SONG ###
+GET http://127.0.0.1:8000/api/v1/songs/1001/
+
+##################
+### CREATE NEW ###
+##################
+
+### CREATE NEW ARTIST ###
 POST http://127.0.0.1:8000/api/v1/artists/
 Content-Type: application/json
 
 {
-    "name": "qurixsity"
+    "name": "TEST ARTIST"
 }
 
-###
-
+### CREATE NEW ALBUM ###
 POST http://127.0.0.1:8000/api/v1/albums/
 Content-Type: application/json
 
 {
-    "name": "РАЗНОС",
+    "name": "TEST ALBUM",
     "artist": 1001,
     "year": 2023
 }
 
-###
-
+### CREATE NEW SONG ###
 POST http://127.0.0.1:8000/api/v1/songs/
 Content-Type: application/json
 
 {
-    "name": "toler",
-    "album": 1003 
+    "name": "TEST SONG",
+    "album": 1001 
 }
 
-###
+###############################
+### PARTIAL UPDATE EXISTING ###
+###############################
 
-DELETE http://127.0.0.1:8000/api/v1/artists/1003/
+### PARTIAL UPDATE EXISTING ARTIST ###
+PATCH http://127.0.0.1:8000/api/v1/artists/1001/
+Content-Type: application/json
 
-###
+{
+    "name": "NOT 3TERNITY"
+}
 
-DELETE http://127.0.0.1:8000/api/v1/songs/1002/
+### PARTIAL UPDATE EXISTING ALBUM ###
+PATCH http://127.0.0.1:8000/api/v1/albums/1001/
+Content-Type: application/json
+
+{
+    "name": "NOT SENSE R3MELT",
+}
+
+### PARTIAL UPDATE EXISTING SONG ###
+PATCH http://127.0.0.1:8000/api/v1/songs/1001/
+Content-Type: application/json
+
+{
+    "name": "NOT INTRO"
+}
+
+################################
+### COMPLETE UPDATE EXISTING ###
+################################
+
+### COMPLETE UPDATE EXISTING ARTIST ###
+PUT http://127.0.0.1:8000/api/v1/artists/1001/
+Content-Type: application/json
+
+{
+    "name": "NOT 3TERNITY"
+}
+
+### COMPLETE UPDATE EXISTING ALBUM ###
+PUT http://127.0.0.1:8000/api/v1/albums/1001/
+Content-Type: application/json
+
+{
+    "name": "NOT SENSE R3MELT",
+    "artist": 1002,
+    "year": 1999
+}
+
+### COMPLETE UPDATE EXISTING SONG ###
+PUT http://127.0.0.1:8000/api/v1/songs/1070/
+Content-Type: application/json
+
+{
+    "name": "NOT INTRO",
+    "album": 1002
+}
+
+#######################
+### DELETE EXISTING ###
+#######################
+
+### DELETE EXISTING ARTIST ###
+DELETE http://127.0.0.1:8000/api/v1/artists/1001/
+
+
+### DELETE EXISTING ALBUM ###
+DELETE http://127.0.0.1:8000/api/v1/albums/1001/
+
+
+### DELETE EXISTING SONG ###
+DELETE http://127.0.0.1:8000/api/v1/songs/1001/
