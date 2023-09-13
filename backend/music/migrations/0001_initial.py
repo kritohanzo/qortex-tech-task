@@ -6,54 +6,109 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Album',
+            name="Album",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=128, verbose_name='Название')),
-                ('year', models.PositiveSmallIntegerField(validators=[core.validators.validate_album_year], verbose_name='Год выпуска')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(max_length=128, verbose_name="Название"),
+                ),
+                (
+                    "year",
+                    models.PositiveSmallIntegerField(
+                        validators=[core.validators.validate_album_year],
+                        verbose_name="Год выпуска",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Альбом',
-                'verbose_name_plural': 'Альбомы',
+                "verbose_name": "Альбом",
+                "verbose_name_plural": "Альбомы",
             },
         ),
         migrations.CreateModel(
-            name='Artist',
+            name="Artist",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=128, verbose_name='Название')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(max_length=128, verbose_name="Название"),
+                ),
             ],
             options={
-                'verbose_name': 'Исполнитель',
-                'verbose_name_plural': 'Исполнители',
-                'ordering': ('name',),
+                "verbose_name": "Исполнитель",
+                "verbose_name_plural": "Исполнители",
+                "ordering": ("name",),
             },
         ),
         migrations.CreateModel(
-            name='Song',
+            name="Song",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=128, verbose_name='Название')),
-                ('serial_number', models.PositiveIntegerField(verbose_name='Порядковый номер в альбоме')),
-                ('album', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='songs', to='music.album', verbose_name='Альбом')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(max_length=128, verbose_name="Название"),
+                ),
+                (
+                    "serial_number",
+                    models.PositiveIntegerField(
+                        verbose_name="Порядковый номер в альбоме"
+                    ),
+                ),
+                (
+                    "album",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="songs",
+                        to="music.album",
+                        verbose_name="Альбом",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Песня',
-                'verbose_name_plural': 'Песни',
-                'ordering': ('name',),
+                "verbose_name": "Песня",
+                "verbose_name_plural": "Песни",
+                "ordering": ("name",),
             },
         ),
         migrations.AddField(
-            model_name='album',
-            name='artist',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='albums', to='music.artist', verbose_name='Исполнитель'),
+            model_name="album",
+            name="artist",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="albums",
+                to="music.artist",
+                verbose_name="Исполнитель",
+            ),
         ),
     ]

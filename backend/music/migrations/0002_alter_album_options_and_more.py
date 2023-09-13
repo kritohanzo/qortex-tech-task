@@ -4,19 +4,22 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('music', '0001_initial'),
+        ("music", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='album',
-            options={'ordering': ('name',), 'verbose_name': 'Альбом', 'verbose_name_plural': 'Альбомы'},
+            name="album",
+            options={
+                "ordering": ("name",),
+                "verbose_name": "Альбом",
+                "verbose_name_plural": "Альбомы",
+            },
         ),
         migrations.RenameField(
-            model_name='song',
-            old_name='serial_number',
-            new_name='serial_number_in_album',
+            model_name="song",
+            old_name="serial_number",
+            new_name="serial_number_in_album",
         ),
     ]
