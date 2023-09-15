@@ -18,7 +18,7 @@ class Command(BaseCommand):
             for data_name in data_names:
                 data_path = os.path.join(app_path, data_name)
                 django_model = apps.get_model(
-                    app_label=app_name, model_name=data_name[:-6]
+                    app_label=app_name, model_name=data_name.split('.')[1]
                 )
                 with open(data_path, "r", encoding="utf-8") as file:
                     try:

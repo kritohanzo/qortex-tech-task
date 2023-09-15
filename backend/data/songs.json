@@ -1,278 +1,278 @@
 [
     {
-        "id": 1001,
+        "id": 1,
         "name": "Никто из вас (Intro)",
-        "album_id": 1001,
+        "album_id": 1,
         "serial_number_in_album": 1
     },
     {
-        "id": 1002,
+        "id": 2,
         "name": "Суть",
-        "album_id": 1001,
+        "album_id": 1,
         "serial_number_in_album": 2
     },
     {
-        "id": 1003,
+        "id": 3,
         "name": "Абсолют",
-        "album_id": 1001,
+        "album_id": 1,
         "serial_number_in_album": 3
     },
     {
-        "id": 1004,
+        "id": 4,
         "name": "LVL UP",
-        "album_id": 1001,
+        "album_id": 1,
         "serial_number_in_album": 4
     },
     {
-        "id": 1005,
+        "id": 5,
         "name": "Облака",
-        "album_id": 1001,
+        "album_id": 1,
         "serial_number_in_album": 5
     },
     {
-        "id": 1006,
+        "id": 6,
         "name": "nofriends",
-        "album_id": 1001,
+        "album_id": 1,
         "serial_number_in_album": 6
     },
     {
-        "id": 1007,
+        "id": 7,
         "name": "Разложение",
-        "album_id": 1001,
+        "album_id": 1,
         "serial_number_in_album": 7
     },
     {
-        "id": 1008,
+        "id": 8,
         "name": "fallininluv",
-        "album_id": 1001,
+        "album_id": 1,
         "serial_number_in_album": 8
     },
     {
-        "id": 1009,
+        "id": 9,
         "name": "Из окна",
-        "album_id": 1001,
+        "album_id": 1,
         "serial_number_in_album": 9
     },
     {        
-        "id": 1010,
+        "id": 10,
         "name": "Минерал",
-        "album_id": 1001,
+        "album_id": 1,
         "serial_number_in_album": 10
     },
     {        
-        "id": 1011,
+        "id": 11,
         "name": "multicolor / 440w",
-        "album_id": 1001,
+        "album_id": 1,
         "serial_number_in_album": 11
     },
     {
-        "id": 1012,
+        "id": 12,
         "name": "Деталь",
-        "album_id": 1001,
+        "album_id": 1,
         "serial_number_in_album": 12
     },
     {
-        "id": 1013,
+        "id": 13,
         "name": "Покой",
-        "album_id": 1001,
+        "album_id": 1,
         "serial_number_in_album": 13
     },
     {
-        "id": 1014,
+        "id": 14,
         "name": "Разбивай",
-        "album_id": 1001,
+        "album_id": 1,
         "serial_number_in_album": 14
     },
     {
-        "id": 1015,
+        "id": 15,
         "name": "Услышь меня (Outro)",
-        "album_id": 1001,
+        "album_id": 1,
         "serial_number_in_album": 15
     },
     {
-        "id": 1016,
+        "id": 16,
         "name": "Повезет",
-        "album_id": 1002,
+        "album_id": 2,
         "serial_number_in_album": 1
     },
     {
-        "id": 1017,
+        "id": 17,
         "name": "Зависим",
-        "album_id": 1002,
+        "album_id": 2,
         "serial_number_in_album": 2
     },
     {
-        "id": 1018,
+        "id": 18,
         "name": "Цветы",
-        "album_id": 1002,
+        "album_id": 2,
         "serial_number_in_album": 3
     },
     {
-        "id": 1019,
+        "id": 19,
         "name": "Свети",
-        "album_id": 1002,
+        "album_id": 2,
         "serial_number_in_album": 4
     },
     {
-        "id": 1020,
+        "id": 20,
         "name": "Луна",
-        "album_id": 1002,
+        "album_id": 2,
         "serial_number_in_album": 5
     },
     {
-        "id": 1021,
+        "id": 21,
         "name": "Невыносимо",
-        "album_id": 1002,
+        "album_id": 2,
         "serial_number_in_album": 6
     },
     {
-        "id": 1022,
+        "id": 22,
         "name": "Чужая",
-        "album_id": 1002,
+        "album_id": 2,
         "serial_number_in_album": 7
     },
     {
-        "id": 1023,
+        "id": 23,
         "name": "Ничего не помню ничего не чувствую",
-        "album_id": 1003,
+        "album_id": 3,
         "serial_number_in_album": 1
     },
     {
-        "id": 1024,
+        "id": 24,
         "name": "My Beautiful Madness",
-        "album_id": 1003,
+        "album_id": 3,
         "serial_number_in_album": 2
     },
     {
-        "id": 1025,
+        "id": 25,
         "name": "В городе где гаснут фонари",
-        "album_id": 1003,
+        "album_id": 3,
         "serial_number_in_album": 3
     },
     {
-        "id": 1026,
+        "id": 26,
         "name": "Чёрное солнышко",
-        "album_id": 1003,
+        "album_id": 3,
         "serial_number_in_album": 4
     },
     {
-        "id": 1027,
+        "id": 27,
         "name": "Сигаретка без кнопки",
-        "album_id": 1003,
+        "album_id": 3,
         "serial_number_in_album": 5
     },
     {
-        "id": 1028,
+        "id": 28,
         "name": "Цветами радуги",
-        "album_id": 1003,
+        "album_id": 3,
         "serial_number_in_album": 6
     },
     {
-        "id": 1029,
+        "id": 29,
         "name": "Почему да потому что",
-        "album_id": 1003,
+        "album_id": 3,
         "serial_number_in_album": 7
     },
     {
-        "id": 1030,
+        "id": 30,
         "name": "Пальчики паноптикум",
-        "album_id": 1003,
+        "album_id": 3,
         "serial_number_in_album": 8
     },
     {
-        "id": 1031,
+        "id": 31,
         "name": "Моя милая пустота",
-        "album_id": 1003,
+        "album_id": 3,
         "serial_number_in_album": 9
     },
     {
-        "id": 1032,
+        "id": 32,
         "name": "Гепатит спид сифилис",
-        "album_id": 1003,
+        "album_id": 3,
         "serial_number_in_album": 10
     },
     {
-        "id": 1033,
+        "id": 33,
         "name": "Сколопендра",
-        "album_id": 1003,
+        "album_id": 3,
         "serial_number_in_album": 11
     },
     {
-        "id": 1034,
+        "id": 34,
         "name": "Виа Долороса",
-        "album_id": 1003,
+        "album_id": 3,
         "serial_number_in_album": 12
     },
     {
-        "id": 1035,
+        "id": 35,
         "name": "Ангелы не летают",
-        "album_id": 1003,
+        "album_id": 3,
         "serial_number_in_album": 13
     },
     {
-        "id": 1036,
+        "id": 36,
         "name": "Как сатурн пожирает своих детей",
-        "album_id": 1003,
+        "album_id": 3,
         "serial_number_in_album": 14
     },
     {
-        "id": 1037,
+        "id": 37,
         "name": "Цветочек зла",
-        "album_id": 1003,
+        "album_id": 3,
         "serial_number_in_album": 15
     },
     {
-        "id": 1038,
+        "id": 38,
         "name": "Все розы попадают в ад",
-        "album_id": 1003,
+        "album_id": 3,
         "serial_number_in_album": 16
     },
     {
-        "id": 1039,
+        "id": 39,
         "name": "Дети бабочек",
-        "album_id": 1003,
+        "album_id": 3,
         "serial_number_in_album": 17
     },
     {
-        "id": 1040,
+        "id": 40,
         "name": "17",
-        "album_id": 1004,
+        "album_id": 4,
         "serial_number_in_album": 1
     },
     {
-        "id": 1041,
+        "id": 41,
         "name": "Redbull",
-        "album_id": 1004,
+        "album_id": 4,
         "serial_number_in_album": 2
     },
     {
-        "id": 1042,
+        "id": 42,
         "name": "Дисания",
-        "album_id": 1004,
+        "album_id": 4,
         "serial_number_in_album": 3
     },
     {
-        "id": 1043,
+        "id": 43,
         "name": "Ночные кошмары",
-        "album_id": 1004,
+        "album_id": 4,
         "serial_number_in_album": 4
     },
     {
-        "id": 1044,
+        "id": 44,
         "name": "Ага",
-        "album_id": 1004,
+        "album_id": 4,
         "serial_number_in_album": 5
     },
     {
-        "id": 1045,
+        "id": 45,
         "name": "Вызывай скорую",
-        "album_id": 1004,
+        "album_id": 4,
         "serial_number_in_album": 6
     },
     {
-        "id": 1046,
+        "id": 46,
         "name": "Глаза в глаза",
-        "album_id": 1004,
+        "album_id": 4,
         "serial_number_in_album": 7
     }
 ]
