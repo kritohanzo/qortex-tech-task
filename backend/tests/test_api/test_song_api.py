@@ -4,7 +4,7 @@ import json
 from http import HTTPStatus
 
 
-@pytest.mark.django_db()
+@pytest.mark.django_db(transaction=True)
 class TestSongAPI:
     def test_00_get_all_songs(
         self, api_client, artist_model, album_model, song_model

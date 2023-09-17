@@ -1,7 +1,7 @@
 import pytest
 
 
-@pytest.mark.django_db()
+@pytest.mark.django_db(transaction=True)
 class TestMusicModels:
     def test_00_models_have_correct_str(
         self, artist_model, album_model, song_model
