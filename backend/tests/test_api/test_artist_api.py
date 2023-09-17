@@ -49,8 +49,11 @@ class TestArtistAPI:
     def test_02_create_new_artist(self, api_client, artist_model) -> None:
         endpoint = "/api/v1/artists/"
         post_data = {"name": "pyatno"}
-        expected_data = {"id": 1, "name": post_data.get("name")}
         quantity_before_request = artist_model.objects.count()
+        expected_data = {
+            "id": quantity_before_request + 1,
+            "name": post_data.get("name")
+        }
         response = api_client.post(path=endpoint, data=post_data)
         quantity_after_request = artist_model.objects.count()
         assert (

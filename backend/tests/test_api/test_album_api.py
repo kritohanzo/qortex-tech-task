@@ -79,13 +79,13 @@ class TestAlbumAPI:
         endpoint = "/api/v1/albums/"
         artist = artist_model.objects.create(name="Daylor")
         post_data = {"name": "miSShooting", "artist": artist.id, "year": 2008}
+        quantity_before_request = album_model.objects.count()
         expected_data = {
-            "id": 1,
+            "id": quantity_before_request + 1,
             "name": post_data.get("name"),
             "artist": artist.name,
             "year": post_data.get("year"),
         }
-        quantity_before_request = album_model.objects.count()
         response = api_client.post(path=endpoint, data=post_data)
         quantity_after_request = album_model.objects.count()
         assert (

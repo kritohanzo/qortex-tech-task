@@ -88,13 +88,13 @@ class TestSongAPI:
             name="Boston", artist=artist, year=2021
         )
         post_data = {"name": "Crystalys", "album": album.id}
+        quantity_before_request = song_model.objects.count()
         expected_data = {
-            "id": 1,
+            "id": quantity_before_request + 1,
             "name": post_data.get("name"),
             "album": album.name,
             "serial_number_in_album": 1,
         }
-        quantity_before_request = song_model.objects.count()
         response = api_client.post(path=endpoint, data=post_data)
         quantity_after_request = song_model.objects.count()
         assert (
