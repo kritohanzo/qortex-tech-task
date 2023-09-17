@@ -3,19 +3,6 @@ import pytest
 from rest_framework.test import APIClient
 from django.apps import apps
 from django.db.models import Model
-from django.conf import settings
-
-
-@pytest.fixture(scope="session")
-def django_db_setup():
-    settings.DATABASES["default"] = {
-        "ENGINE": "django.db.backends.postgresql",
-        "HOST": "127.0.0.1",
-        "NAME": "test_db",
-        "PASSWORD": "test_password",
-        "USER": "test_user",
-        "PORT": 5432,
-    }
 
 
 @pytest.fixture(scope="function")
