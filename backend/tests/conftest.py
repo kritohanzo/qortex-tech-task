@@ -5,7 +5,7 @@ from django.apps import apps
 from django.db.models import Model
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture
 def api_client() -> APIClient:
     """
     Fixture to provide an API client

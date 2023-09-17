@@ -4,7 +4,7 @@ import json
 from http import HTTPStatus
 
 
-@pytest.mark.django_db(transaction=True)
+@pytest.mark.django_db()
 class TestArtistAPI:
     def test_00_get_all_artists(self, api_client, artist_model) -> None:
         endpoint = "/api/v1/artists/"
