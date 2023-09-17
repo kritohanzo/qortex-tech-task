@@ -17,6 +17,7 @@ def django_db_setup():
         "PORT": 5432,
     }
 
+
 @pytest.fixture(scope="function")
 def api_client() -> APIClient:
     """
