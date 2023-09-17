@@ -49,10 +49,10 @@ jobs:
         pip install -r ./backend/requirements/requirements.test.txt
     - name: Test with PyTest
       env:
-        POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-        POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+        POSTGRES_USER: test_user
+        POSTGRES_PASSWORD: test_password
+        POSTGRES_DB: test_db
         DB_HOST: 127.0.0.1
-        DB_PORT: ${{ secrets.DB_PORT }}
+        DB_PORT: 5432
       run: |
         pytest

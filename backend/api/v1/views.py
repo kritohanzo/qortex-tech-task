@@ -3,13 +3,10 @@ from typing import Optional, Type
 from rest_framework.serializers import Serializer
 from rest_framework.viewsets import ModelViewSet
 
-from api.v1.serializers import (
-    ArtistSerializer,
-    CreateUpdateAlbumSerializer,
-    CreateUpdateSongSerializer,
-    RetrieveListAlbumSerializer,
-    RetrieveListSongSerializer,
-)
+from api.v1.serializers import (ArtistSerializer, CreateUpdateAlbumSerializer,
+                                CreateUpdateSongSerializer,
+                                RetrieveListAlbumSerializer,
+                                RetrieveListSongSerializer,)
 from music.models import Album, Artist, Song
 
 

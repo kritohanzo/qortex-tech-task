@@ -37,10 +37,16 @@ class TestSongAPI:
         response = api_client.get(path=endpoint)
         assert (
             response.status_code == HTTPStatus.OK
-        ), f'При "GET" запросе на эндпоинт "{endpoint}" должен возвращаться код {HTTPStatus.OK}.'
+        ), (
+            f'При "GET" запросе на эндпоинт "{endpoint}" '
+            f'должен возвращаться код {HTTPStatus.OK}.'
+        )
         assert (
             json.loads(response.content).get("results") == expected_data
-        ), f'Структура ответа API при "GET" запросе на эндпоинт "{endpoint}" отличается от заявленной.'
+        ), (
+            'Структура ответа API при "GET" запросе '
+            f'на эндпоинт "{endpoint}" отличается от заявленной.'
+        )
 
     def test_01_get_concrete_song(
         self, api_client, artist_model, album_model, song_model
@@ -62,10 +68,16 @@ class TestSongAPI:
         response = api_client.get(path=endpoint)
         assert (
             response.status_code == HTTPStatus.OK
-        ), f'При "GET" запросе на эндпоинт "{endpoint}" должен возвращаться код {HTTPStatus.OK}.'
+        ), (
+            f'При "GET" запросе на эндпоинт "{endpoint}" '
+            f'должен возвращаться код {HTTPStatus.OK}.'
+        )
         assert (
             json.loads(response.content) == expected_data
-        ), f'Структура ответа API при "GET" запросе на эндпоинт "{endpoint}" отличается от заявленной.'
+        ), (
+            'Структура ответа API при "GET" запросе '
+            f'на эндпоинт "{endpoint}" отличается от заявленной.'
+        )
 
     def test_02_create_new_song(
         self, api_client, artist_model, album_model, song_model
@@ -87,13 +99,22 @@ class TestSongAPI:
         quantity_after_request = song_model.objects.count()
         assert (
             response.status_code == HTTPStatus.CREATED
-        ), f'При "POST" запросе на эндпоинт "{endpoint}" должен возвращаться код {HTTPStatus.CREATED}.'
+        ), (
+            f'При "POST" запросе на эндпоинт "{endpoint}" '
+            f'должен возвращаться код {HTTPStatus.CREATED}.'
+        )
         assert expected_data == json.loads(
             response.content
-        ), f'Структура ответа API при "POST" запросе на эндпоинт "{endpoint}" отличается от заявленной.'
+        ), (
+            'Структура ответа API при "POST" запросе '
+            f'на эндпоинт "{endpoint}" отличается от заявленной.'
+        )
         assert (
             quantity_before_request + 1 == quantity_after_request
-        ), f'При "POST" запросе на эндпоинт "{endpoint}" должна создаваться новая запись в базе данных.'
+        ), (
+            f'При "POST" запросе на эндпоинт "{endpoint}" '
+            'должна создаваться новая запись в базе данных.'
+        )
 
     def test_03_partial_update_existing_song(
         self, api_client, artist_model, album_model, song_model
@@ -117,13 +138,22 @@ class TestSongAPI:
         song = song_model.objects.get(id=song.id)
         assert (
             response.status_code == HTTPStatus.OK
-        ), f'При "PATCH" запросе на эндпоинт "{endpoint}" должен возвращаться код {HTTPStatus.OK}.'
+        ), (
+            f'При "PATCH" запросе на эндпоинт "{endpoint}" '
+            f'должен возвращаться код {HTTPStatus.OK}.'
+        )
         assert expected_data == json.loads(
             response.content
-        ), f'Структура ответа API при "PATCH" запросе на эндпоинт "{endpoint}" отличается от заявленной.'
+        ), (
+            'Структура ответа API при "PATCH" запросе '
+            f'на эндпоинт "{endpoint}" отличается от заявленной.'
+        )
         assert song.name == patch_data.get(
             "name"
-        ), f'При "PATCH" запросе на эндпоинт "{endpoint}" объект модели базы данных должен изменяться.'
+        ), (
+            f'При "PATCH" запросе на эндпоинт "{endpoint}" '
+            'объект модели базы данных должен изменяться.'
+        )
 
     def test_04_complete_update_existing_song(
         self, api_client, artist_model, album_model, song_model
@@ -146,18 +176,31 @@ class TestSongAPI:
         response = api_client.put(path=endpoint, data={"name": "NOT Highway"})
         assert (
             response.status_code == HTTPStatus.BAD_REQUEST
-        ), f'При "PUT" запросе на эндпоинт "{endpoint}" без обязательных полей должен возвращаться код {HTTPStatus.BAD_REQUEST}.'
+        ), (
+            f'При "PUT" запросе на эндпоинт "{endpoint}" '
+            'без обязательных полей '
+            f'должен возвращаться код {HTTPStatus.BAD_REQUEST}.'
+        )
         response = api_client.put(path=endpoint, data=put_data)
         song = song_model.objects.get(id=song.id)
         assert (
             response.status_code == HTTPStatus.OK
-        ), f'При "PUT" запросе на эндпоинт "{endpoint}" должен возвращаться код {HTTPStatus.OK}.'
+        ), (
+            f'При "PUT" запросе на эндпоинт "{endpoint}" '
+            f'должен возвращаться код {HTTPStatus.OK}.'
+        )
         assert expected_data == json.loads(
             response.content
-        ), f'Структура ответа API при "PUT" запросе на эндпоинт "{endpoint}" отличается от заявленной.'
+        ), (
+            'Структура ответа API при "PUT" запросе '
+            f'на эндпоинт "{endpoint}" отличается от заявленной.'
+        )
         assert song.name == put_data.get(
             "name"
-        ), f'При "PUT" запросе на эндпоинт "{endpoint}" объект модели базы данных должен изменяться.'
+        ), (
+            f'При "PUT" запросе на эндпоинт "{endpoint}" '
+            'объект модели базы данных должен изменяться.'
+        )
 
     def test_05_delete_existing_album(
         self, api_client, artist_model, album_model, song_model
@@ -176,17 +219,30 @@ class TestSongAPI:
         quantity_after_request = song_model.objects.count()
         assert (
             response.status_code == HTTPStatus.NO_CONTENT
-        ), f'При "DELETE" запросе на эндпоинт "{endpoint}" должен возвращаться код {HTTPStatus.NO_CONTENT}.'
+        ), (
+            f'При "DELETE" запросе на эндпоинт "{endpoint}" '
+            f'должен возвращаться код {HTTPStatus.NO_CONTENT}.'
+        )
         assert (
             expected_data == response.content
-        ), f'Структура ответа API при "DELETE" запросе на эндпоинт "{endpoint}" отличается от заявленной.'
+        ), (
+            'Структура ответа API при "DELETE" запросе '
+            f'на эндпоинт "{endpoint}" отличается от заявленной.'
+        )
         assert (
             quantity_before_request - 1 == quantity_after_request
-        ), f'При "DELETE" запросе на эндпоинт "{endpoint}" должна удаляться запись из базы данных.'
+        ), (
+            f'При "DELETE" запросе на эндпоинт "{endpoint}" '
+            'должна удаляться запись из базы данных.'
+        )
 
     def test_06_song_not_found(self, api_client):
         endpoint = "/api/v1/songs/1000/"
         response = api_client.get(path=endpoint)
         assert (
             response.status_code == HTTPStatus.NOT_FOUND
-        ), f'При запросе к конкретной песне, например "{endpoint}", в случае, если объект не существует - должен возвращаться код {HTTPStatus.NOT_FOUND}.'
+        ), (
+            f'При запросе к конкретной песне, например "{endpoint}", '
+            'в случае, если объект не существует - должен '
+            f'возвращаться код {HTTPStatus.NOT_FOUND}.'
+        )

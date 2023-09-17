@@ -74,7 +74,7 @@ DATABASES = {
         "USER": os.getenv("POSTGRES_USER", "django_user"),
         "PASSWORD": os.getenv("POSTGRES_PASSWORD", "django_password"),
         "HOST": os.getenv("DB_HOST", "127.0.0.1"),
-        "PORT": int(os.getenv("DB_PORT", "5432")),
+        "PORT": int(os.getenv("DB_PORT", "5432"))
     }
 }
 
@@ -116,5 +116,5 @@ REST_FRAMEWORK = {
 }
 
 SWAGGER_SETTINGS = {
-   'USE_SESSION_AUTH': False
+    "USE_SESSION_AUTH": False
 }
