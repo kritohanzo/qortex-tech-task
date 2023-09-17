@@ -4,13 +4,22 @@ from rest_framework.test import APIClient
 from django.apps import apps
 from django.db.models import Model
 
+@pytest.fixture(autouse=True)
+def enable_db_access_for_all_tests(db):
+    pass
+
+
+# @pytest.fixture(scope='session')
+# def django_db_setup():
+#     from django.conf import settings
+#     settings.DATABASES['default'] = {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'db_name.sqlite3',
+#     }
+
 
 @pytest.fixture
 def api_client() -> APIClient:
-    """
-    Fixture to provide an API client
-    :return: APIClient
-    """
     yield APIClient()
 
 
