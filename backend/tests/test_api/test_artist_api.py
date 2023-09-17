@@ -50,12 +50,19 @@ class TestArtistAPI:
         endpoint = "/api/v1/artists/"
         post_data = {"name": "pyatno"}
         quantity_before_request = artist_model.objects.count()
-        expected_data = {
-            "id": quantity_before_request + 1,
-            "name": post_data.get("name")
-        }
         response = api_client.post(path=endpoint, data=post_data)
         quantity_after_request = artist_model.objects.count()
+        assert (
+            quantity_before_request + 1 == quantity_after_request
+        ), (
+            f'При "POST" запросе на эндпоинт "{endpoint}" '
+            'должна создаваться новая запись в базе данных.'
+        )
+        expected_artist = artist_model.objects.get(**post_data)
+        expected_data = {
+            "id": expected_artist.id,
+            "name": expected_artist.name
+        }
         assert (
             response.status_code == HTTPStatus.CREATED
         ), (
@@ -67,12 +74,6 @@ class TestArtistAPI:
         ), (
             'Структура ответа API при "POST" запросе '
             f'на эндпоинт "{endpoint}" отличается от заявленной.'
-        )
-        assert (
-            quantity_before_request + 1 == quantity_after_request
-        ), (
-            f'При "POST" запросе на эндпоинт "{endpoint}" '
-            'должна создаваться новая запись в базе данных.'
         )
 
     def test_03_partial_update_existing_artist(

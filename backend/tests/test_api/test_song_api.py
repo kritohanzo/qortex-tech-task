@@ -89,14 +89,23 @@ class TestSongAPI:
         )
         post_data = {"name": "Crystalys", "album": album.id}
         quantity_before_request = song_model.objects.count()
-        expected_data = {
-            "id": quantity_before_request + 1,
-            "name": post_data.get("name"),
-            "album": album.name,
-            "serial_number_in_album": 1,
-        }
         response = api_client.post(path=endpoint, data=post_data)
         quantity_after_request = song_model.objects.count()
+        assert (
+            quantity_before_request + 1 == quantity_after_request
+        ), (
+            f'При "POST" запросе на эндпоинт "{endpoint}" '
+            'должна создаваться новая запись в базе данных.'
+        )
+        expected_song = (
+            song_model.objects.select_related("album").get(**post_data)
+        )
+        expected_data = {
+            "id": expected_song.id,
+            "name": expected_song.name,
+            "album": expected_song.album.name,
+            "serial_number_in_album": 1,
+        }
         assert (
             response.status_code == HTTPStatus.CREATED
         ), (
@@ -108,12 +117,6 @@ class TestSongAPI:
         ), (
             'Структура ответа API при "POST" запросе '
             f'на эндпоинт "{endpoint}" отличается от заявленной.'
-        )
-        assert (
-            quantity_before_request + 1 == quantity_after_request
-        ), (
-            f'При "POST" запросе на эндпоинт "{endpoint}" '
-            'должна создаваться новая запись в базе данных.'
         )
 
     def test_03_partial_update_existing_song(

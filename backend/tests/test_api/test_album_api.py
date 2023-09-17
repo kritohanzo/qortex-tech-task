@@ -4,7 +4,7 @@ import json
 from http import HTTPStatus
 
 
-@pytest.mark.django_db(transaction=True)
+@pytest.mark.django_db()
 class TestAlbumAPI:
     def test_00_get_all_albums(
         self, api_client, artist_model, album_model
@@ -80,14 +80,23 @@ class TestAlbumAPI:
         artist = artist_model.objects.create(name="Daylor")
         post_data = {"name": "miSShooting", "artist": artist.id, "year": 2008}
         quantity_before_request = album_model.objects.count()
-        expected_data = {
-            "id": quantity_before_request + 1,
-            "name": post_data.get("name"),
-            "artist": artist.name,
-            "year": post_data.get("year"),
-        }
         response = api_client.post(path=endpoint, data=post_data)
         quantity_after_request = album_model.objects.count()
+        assert (
+            quantity_before_request + 1 == quantity_after_request
+        ), (
+            f'При "POST" запросе на эндпоинт "{endpoint}" '
+            'должна создаваться новая запись в базе данных.'
+        )
+        expected_album = (
+            album_model.objects.select_related("artist").get(**post_data)
+        )
+        expected_data = {
+            "id": expected_album.id,
+            "name": expected_album.name,
+            "artist": expected_album.artist.name,
+            "year": expected_album.year,
+        }
         assert (
             response.status_code == HTTPStatus.CREATED
         ), (
@@ -99,12 +108,6 @@ class TestAlbumAPI:
         ), (
             'Структура ответа API при "POST" запросе '
             f'на эндпоинт "{endpoint}" отличается от заявленной.'
-        )
-        assert (
-            quantity_before_request + 1 == quantity_after_request
-        ), (
-            f'При "POST" запросе на эндпоинт "{endpoint}" '
-            'должна создаваться новая запись в базе данных.'
         )
 
     def test_03_partial_update_existing_album(
