@@ -8,6 +8,14 @@ from music.models import Song
 def rearrange_serial_numbers(
     sender: Song, instance: Song, *args, **kwargs
 ) -> None:
+    """Сигнал для автоматического пересчёта
+    порядкового номера песни в альбоме.
+
+    После удаления песни получает queryset
+    со всеми песнями, которые имеют больший порядковый номер,
+    чем удалённая песня, после чего уменьшает их порядковый
+    номер на 1.
+    """
     songs = instance.album.songs.filter(
         serial_number_in_album__gt=instance.serial_number_in_album
     )

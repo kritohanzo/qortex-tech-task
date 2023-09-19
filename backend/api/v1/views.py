@@ -11,8 +11,19 @@ from music.models import Album, Artist, Song
 
 
 class MultiSerializerViewSetMixin:
-    """Миксин для выбора нужного сериализатора из `serializer_classes`."""
-
+    """Миксин для выбора нужного сериализатора из "serializer_classes".
+    
+    Позволяет задать словарь в классе вьюсета,
+    после чего миксин будет самостоятельно выбирать
+    нужный сериализатор, в зависимости от action.
+    
+    Например:
+        serializer_classes = {
+            ...,
+            "retrieve": RetrieveUserSerializer,
+            ...
+        }
+    """
     serializer_classes: Optional[dict[str, Type[Serializer]]] = None
 
     def get_serializer_class(self):
@@ -23,13 +34,14 @@ class MultiSerializerViewSetMixin:
 
 
 class ArtistViewSet(ModelViewSet):
+    """Вьюсет для модели исполнителя."""
     serializer_class = ArtistSerializer
     queryset = Artist.objects.all()
 
 
 class AlbumViewSet(MultiSerializerViewSetMixin, ModelViewSet):
+    """Вьюсет для модели альбома."""
     queryset = Album.objects.select_related("artist")
-
     serializer_classes = {
         "create": CreateUpdateAlbumSerializer,
         "update": CreateUpdateAlbumSerializer,
@@ -40,8 +52,8 @@ class AlbumViewSet(MultiSerializerViewSetMixin, ModelViewSet):
 
 
 class SongViewSet(MultiSerializerViewSetMixin, ModelViewSet):
+    """Вьюсет для модели песни."""
     queryset = Song.objects.select_related("album")
-
     serializer_classes = {
         "create": CreateUpdateSongSerializer,
         "update": CreateUpdateSongSerializer,
@@ -51,6 +63,12 @@ class SongViewSet(MultiSerializerViewSetMixin, ModelViewSet):
     }
 
     def perform_create(self, serializer):
+        """Переопеделние метода,
+        срабатывающего перед созданием новой песни в БД.
+
+        Перед созданием песни присвает ей порядковый номер в альбоме,
+        равный количеству всех имеющихся песен в конкретном альбоме плюс один.
+        """
         album = serializer.validated_data.get("album")
         songs = album.songs.all()
         serial_number_in_album = len(songs) + 1
