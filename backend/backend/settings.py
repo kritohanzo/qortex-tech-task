@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "admin_auto_filters",
     "rest_framework",
     'drf_yasg',
     "api.apps.ApiConfig",
@@ -70,6 +71,13 @@ DATABASES = {
         "PORT": int(os.getenv("DB_PORT", "5432"))
     }
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": "db.sqlite3",
+#     }
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
