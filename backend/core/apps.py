@@ -6,4 +6,5 @@ class CoreConfig(AppConfig):
     name = "core"
 
     def ready(self):
+        """Переопределение метода для работы сигналов."""
         import core.signals

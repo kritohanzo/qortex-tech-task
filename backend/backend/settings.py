@@ -25,7 +25,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "admin_auto_filters",
     "rest_framework",
-    'drf_yasg',
+    "drf_yasg",
     "api.apps.ApiConfig",
     "core.apps.CoreConfig",
     "music.apps.MusicConfig",
@@ -68,7 +68,7 @@ DATABASES = {
         "USER": os.getenv("POSTGRES_USER", "django_user"),
         "PASSWORD": os.getenv("POSTGRES_PASSWORD", "django_password"),
         "HOST": os.getenv("DB_HOST", "127.0.0.1"),
-        "PORT": int(os.getenv("DB_PORT", "5432"))
+        "PORT": int(os.getenv("DB_PORT", "5432")),
     }
 }
 
@@ -116,6 +116,4 @@ REST_FRAMEWORK = {
     "TEST_REQUEST_DEFAULT_FORMAT": "json",
 }
 
-SWAGGER_SETTINGS = {
-    "USE_SESSION_AUTH": False
-}
+SWAGGER_SETTINGS = {"USE_SESSION_AUTH": False}

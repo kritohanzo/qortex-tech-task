@@ -8,11 +8,24 @@ from django.core.management.base import BaseCommand, CommandError
 
 class Command(BaseCommand):
     def add_arguments(self, parser):
+        """Метод, добавляющий аргументы для команды импорта из JSON.
+
+        Аргументы:
+            -f / --file:
+                Путь до файла, где хранятся данные для импорта.
+
+            -a / --app:
+                Название приложения проекта, содержащее модель для импорта.
+
+            -m / --model:
+                Название модели для импорта.
+        """
         parser.add_argument("-f", "--file")
         parser.add_argument("-a", "--app")
         parser.add_argument("-m", "--model")
 
     def handle(self, *args, **options):
+        """Метод-обработчик команды импорта."""
         app_label = options.get("app")
         model_name = options.get("model")
         model = apps.get_model(app_label=app_label, model_name=model_name)
