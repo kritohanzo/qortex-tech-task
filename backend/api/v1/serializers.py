@@ -5,6 +5,7 @@ from music.models import Album, Artist, Song
 
 class ArtistSerializer(serializers.ModelSerializer):
     """Серилизатор для модели исполнителя."""
+
     class Meta:
         model = Artist
         fields = ("id", "name")
@@ -12,10 +13,11 @@ class ArtistSerializer(serializers.ModelSerializer):
 
 class CreateUpdateAlbumSerializer(serializers.ModelSerializer):
     """Серилизатор для модели альбома.
-    
+
     Отрабатывает исключительно при создании новых
     или обновлении существующих записей альбомов в БД.
     """
+
     class Meta:
         model = Album
         fields = ("id", "name", "artist", "year")
@@ -27,7 +29,7 @@ class CreateUpdateAlbumSerializer(serializers.ModelSerializer):
         При возврате ответа от API использует сериализатор,
         предназначенный для более подробного вывода информации,
         заменяющий ID объектов на их имена.
-        """        
+        """
         request = self.context.get("request")
         return RetrieveListAlbumSerializer(
             instance=instance, context={"request": request}
@@ -36,10 +38,11 @@ class CreateUpdateAlbumSerializer(serializers.ModelSerializer):
 
 class CreateUpdateSongSerializer(serializers.ModelSerializer):
     """Серилизатор для модели песни.
-    
+
     Отрабатывает исключительно при создании новых
     или обновлении существующих записей песен в БД.
     """
+
     class Meta:
         model = Song
         fields = ("id", "name", "album", "serial_number_in_album")
@@ -52,7 +55,7 @@ class CreateUpdateSongSerializer(serializers.ModelSerializer):
         При возврате ответа от API использует сериализатор,
         предназначенный для более подробного вывода информации,
         заменяющий ID объектов на их имена.
-        """        
+        """
         request = self.context.get("request")
         return RetrieveListSongSerializer(
             instance=instance, context={"request": request}
@@ -61,10 +64,11 @@ class CreateUpdateSongSerializer(serializers.ModelSerializer):
 
 class RetrieveListAlbumSerializer(serializers.ModelSerializer):
     """Серилизатор для модели альбома.
-    
+
     Отрабатывает для любом выводе информации об альбомах,
     поскольку вместо ID объектов содержит их имена.
     """
+
     artist = serializers.CharField(source="artist.name")
 
     class Meta:
@@ -74,10 +78,11 @@ class RetrieveListAlbumSerializer(serializers.ModelSerializer):
 
 class RetrieveListSongSerializer(serializers.ModelSerializer):
     """Серилизатор для модели песни.
-    
+
     Отрабатывает для любом выводе информации об песнях,
     поскольку вместо ID объектов содержит их имена.
     """
+
     album = serializers.CharField(source="album.name")
 
     class Meta:

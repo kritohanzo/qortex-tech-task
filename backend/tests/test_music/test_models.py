@@ -19,9 +19,7 @@ class TestMusicModels:
             song: song.name,
         }
         for object, expected in object_expected.items():
-            assert (
-                str(object) == expected
-            ), (
+            assert str(object) == expected, (
                 f"Объект модели {object.__class__.__name__} "
                 "имеет некорректный __str__."
             )

@@ -12,11 +12,11 @@ from music.models import Album, Artist, Song
 
 class MultiSerializerViewSetMixin:
     """Миксин для выбора нужного сериализатора из "serializer_classes".
-    
+
     Позволяет задать словарь в классе вьюсета,
     после чего миксин будет самостоятельно выбирать
     нужный сериализатор, в зависимости от action.
-    
+
     Например:
         serializer_classes = {
             ...,
@@ -24,6 +24,7 @@ class MultiSerializerViewSetMixin:
             ...
         }
     """
+
     serializer_classes: Optional[dict[str, Type[Serializer]]] = None
 
     def get_serializer_class(self):
@@ -35,12 +36,14 @@ class MultiSerializerViewSetMixin:
 
 class ArtistViewSet(ModelViewSet):
     """Вьюсет для модели исполнителя."""
+
     serializer_class = ArtistSerializer
     queryset = Artist.objects.all()
 
 
 class AlbumViewSet(MultiSerializerViewSetMixin, ModelViewSet):
     """Вьюсет для модели альбома."""
+
     queryset = Album.objects.select_related("artist")
     serializer_classes = {
         "create": CreateUpdateAlbumSerializer,
@@ -53,6 +56,7 @@ class AlbumViewSet(MultiSerializerViewSetMixin, ModelViewSet):
 
 class SongViewSet(MultiSerializerViewSetMixin, ModelViewSet):
     """Вьюсет для модели песни."""
+
     queryset = Song.objects.select_related("album")
     serializer_classes = {
         "create": CreateUpdateSongSerializer,

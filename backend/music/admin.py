@@ -1,7 +1,8 @@
 from django.contrib import admin
 
+from core.filters import AlbumFilter, ArtistFilter
 from music.models import Album, Artist, Song
-from core.filters import ArtistFilter, AlbumFilter
+
 
 admin.site.site_header = "Администрирование Qortex"
 EMPTY_VALUE_DISPLAY = "—"
@@ -24,8 +25,12 @@ class AlbumConfig(admin.ModelAdmin):
     list_filter = [ArtistFilter]
 
     def get_queryset(self, request):
-        queryset = super(AlbumConfig, self).get_queryset(request).select_related("artist")
-        return queryset 
+        queryset = (
+            super(AlbumConfig, self)
+            .get_queryset(request)
+            .select_related("artist")
+        )
+        return queryset
 
 
 @admin.register(Song)
@@ -37,5 +42,9 @@ class SongConfig(admin.ModelAdmin):
     list_filter = [AlbumFilter]
 
     def get_queryset(self, request):
-        queryset = super(SongConfig, self).get_queryset(request).select_related("album")
-        return queryset 
+        queryset = (
+            super(SongConfig, self)
+            .get_queryset(request)
+            .select_related("album")
+        )
+        return queryset
