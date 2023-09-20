@@ -3,6 +3,6 @@ djangorestframework==3.14.0
 python-dotenv==1.0.0
 drf-yasg==1.21.7
 psycopg2-binary==2.9.3
-django-admin-autocomplete-filter=0.7.1
+django-admin-autocomplete-filter==0.7.1
 pytest==7.4.2
 pytest-django==4.5.2
