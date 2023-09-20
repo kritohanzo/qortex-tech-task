@@ -63,7 +63,7 @@ python manage.py import_json -f data/artists.json -a music -m Artist
 python manage.py import_json -f data/albums.json -a music -m Album
 python manage.py import_json -f data/songs.json -a music -m Song
 ```
-* Откройте браузер и зайдите на *127.0.0.1:8000/api/v1/*, у вас загрузится страница проекта.
+* Откройте браузер и зайдите на '*127.0.0.1:8000/api/v1/*', у вас загрузится страница проекта.
 * Для просмотра тестовых запросов, по желанию, вы можете использовать файл requests.http, который лежит в папке проекта (требует расширения REST Client для VSCode).
 
 ### Автоматический запуск (Docker):
@@ -79,4 +79,4 @@ cd qortex-tech-task
 ```
 sudo docker compose -f docker-compose.yml up
 ```
-* Откройте браузер и зайдите на *localhost*, у вас загрузится страница проекта.
+* Откройте браузер и зайдите на '*localhost*', у вас загрузится страница проекта.
